@@ -1,3 +1,4 @@
 {
-    "workbench.preferredDarkColorTheme": "Abyss"
+    "workbench.preferredDarkColorTheme": "Abyss",
+    "git.ignoreLimitWarning": true
 }
