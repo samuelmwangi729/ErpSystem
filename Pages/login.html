@@ -21,9 +21,29 @@
 
     <!-- Custom Theme Style -->
     <link href="{% static 'vendors/custom.min.css' %}" rel="stylesheet">
+    <style>
+    #button{
+      color:white;
+      background-image: -moz-linear-gradient(0deg, #36f108 0%, #dc4985 100%);
+      background-image: -webkit-linear-gradient(0deg, #36f108 0%, #dc4985 100%);
+      background-image: -ms-linear-gradient(0deg, #36f108 0%, #dc4985 100%);
+      position: relative;
+      z-index: 1;
+      border: 2px solid red;
+      border-radius:30px;
+    }
+    #button:hover{
+      color:rgb(255, 254, 249) !important;
+      font-size:20px;
+      background:-webkit-linear-gradient(right, #f10808, #000000);
+    }
+    .form-control{
+      border-radius:30px !important;
+    }
+    </style>
   </head>
 
-  <body class="login" style="background:  -webkit-linear-gradient(right, #36f108, #dc4985);">
+  <body class="login" style="background:-webkit-linear-gradient(right, #bef108, #dc4985);">
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
@@ -31,17 +51,24 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content" style="color: white !important">
-            <form method="post" action="">
+            <form method="POST" action="{% url 'loginto' %}">
             {% csrf_token %}
               <h1>Login</h1>
+              {% for message in messages %}
+              <span class="text-center has-error" style="color:red;background-color:white;padding-botton:50px">
+                {{ message }}
+                </span>
+                {% endfor %}
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Username/Email Account" required="required" name="username" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="Password" required="required" name="password" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html" style="color: white !important">Log in</a>
+                <button class="btn btn-block" type="submit" id="button">
+                Login
+                </button>
                 <a class="reset_pass" href="#" style="color: white !important">Lost your password?</a>
               </div>
 
@@ -69,21 +96,45 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content" style="color: white !important">
-            <form>
+            <form method="POST" action="{% url  'register' %}">
+            {% csrf_token %}
               <h1>Register</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+              <div class="form">
+              <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="text" name="first_name" id="" class="form-control" placeholder="First Name" required="required">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" name="last_name" id="" class="form-control" placeholder="First Name" required="required">
+                  </div>
+                </div>
               </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
               </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+              <div class="row">
+                <div class="col-sm-12 form-group">
+                  <input type="email" name="email" id="" class="form-control" placeholder="Email" required="required">
+                </div>
               </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html" style="color: white !important">Submit</a>
+              <div class="row">
+                <div class="col-sm-12 form-group">
+                  <input type="password" name="password" id="" class="form-control" placeholder="Password" required="required">
+                </div>
               </div>
-
+              <div class="row">
+                <div class="col-sm-12 form-group">
+                  <input type="password" name="password_confirmation" id="" class="form-control" placeholder="Confirm Password" required="required">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 form-group">
+                  <button class="btn btn-block" id="button">
+                  Register
+                  </button>
+                </div>
+              </div>
               <div class="clearfix"></div>
 
               <div class="separator">

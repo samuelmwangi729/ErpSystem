@@ -129,11 +129,12 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
   background-clip: text;
   text-fill-color: transparent;
   background-color: #dc4985;
-  background-image: -webkit-linear-gradient(right, #36f108, #dc4985);
-  background-image: -o-linear-gradient(bottom right, #36f108, #dc4985);
-  background-image: linear-gradient(to top left, #36f108, #dc4985);
+  background-image: -webkit-linear-gradient(right, #bef108, #dc4985);
+  background-image: -o-linear-gradient(bottom right, #bef108, #dc4985);
+  background-image: linear-gradient(to top left, #bef108, #dc4985);
   position: relative;
 }
+
 
 /* ==========================================================================
    Buttons

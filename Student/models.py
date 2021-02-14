@@ -28,5 +28,5 @@ class Student(models.Model):
 
 class StudentClass(models.Model):
     ClassName=models.CharField(max_length=2)
-    Status=models.IntegerField(max_length=2)
+    Status=models.IntegerField(default=0)
     ClassNumber=models.OneToOneField("Student", on_delete=models.PROTECT)
