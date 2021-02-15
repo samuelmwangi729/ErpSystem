@@ -1,0 +1,44 @@
+{% extends 'Base.html' %}
+{% block content %}
+<div class="row">
+<div class="col-sm-6 offset-sm-3">
+<h2 class="text-center">
+Available Classes
+</h2>
+<table class="table table-bordered table-striped table-hover">
+<thead>
+<tr>
+<th>Class</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for class in Classes%}
+<tr class="text-center">
+<td>{{ class.ClassNumber }}</td>
+<td>
+{% if class.Status == 0 %}
+<div class="badge badge-success">
+Class Active
+</div>
+{% else %}
+<div class="badge badge-danger">
+Inactive
+</div>
+{% endif%}
+</td>
+<td>
+<a href="#" class="fa fa-edit text-primary"></a>
+<a href="#" class="fa fa-times-circle text-danger"></a>
+<a href="#" class="fa fa-trash-o text-danger"></a>
+<a href="#" class="fa fa-check-circle text-success"></a>
+</td>
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+{% endblock%}

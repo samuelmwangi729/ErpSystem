@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'About',
     'Login',
     'Student',
+    'Classes',
+    'Streams'
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'Erp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ERP',
+        'NAME': 'Erp',
         'HOST':'localhost',
         'USER':'postgres',
         'PASSWORD':'root'

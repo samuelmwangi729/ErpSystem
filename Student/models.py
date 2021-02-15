@@ -25,8 +25,3 @@ class Student(models.Model):
     _createdAt=models.DateField(auto_now=False, auto_now_add=True)
     _updatedAt=models.DateField(auto_now=True, auto_now_add=False)
     _updatedBy=models.CharField(max_length=30)
-
-class StudentClass(models.Model):
-    ClassName=models.CharField(max_length=2)
-    Status=models.IntegerField(default=0)
-    ClassNumber=models.OneToOneField("Student", on_delete=models.PROTECT)

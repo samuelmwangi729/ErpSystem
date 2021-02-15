@@ -1,0 +1,49 @@
+{% extends 'Base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+        {% for message in messages %}
+        <div class="alert alert-danger">
+        <a href="#" class="close" data-toggle="alert" data-dismiss="alert">&times;</a>
+        {{ message }}
+        </div>
+        {% endfor%}
+    </div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<div class="text-center">
+Add A Class
+</div>
+
+<form action="{% url 'addclass' %}" method="POST">
+{% csrf_token %}
+<div class="form-group">
+<label for="Class" class="label-control">Class</label>
+<br>
+<input type="number" name="ClassName" id="" class="form-control">
+</div>
+<div class="form-group">
+<button class="btn btn-success" type="submit"> Add Class</button>
+</div>
+</form>
+</div>
+<div class="col-sm-6">
+<div class="text-center">
+Add Streams
+</div>
+
+<form action="{% url 'addstream' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="Class" class="label-control">Stream</label>
+    <br>
+    <input type="text" name="StreamName" id="" class="form-control">
+    </div>
+    <div class="form-group">
+    <button class="btn btn-success" type="submit"> Add Stream</button>
+    </div>
+    </form>
+</div>
+</div>
+{% endblock %}
