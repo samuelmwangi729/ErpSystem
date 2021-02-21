@@ -59,8 +59,9 @@
                 {{ message }}
                 </span>
                 {% endfor %}
-              <div>
-                <input type="text" class="form-control" placeholder="Username/Email Account" required="required" name="username" />
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Email Account" required="required" name="username" />
+                
               </div>
               <div>
                 <input type="password" class="form-control" placeholder="Password" required="required" name="password" />
@@ -115,7 +116,8 @@
               </div>
               <div class="row">
                 <div class="col-sm-12 form-group">
-                  <input type="email" name="email" id="" class="form-control" placeholder="Email" required="required">
+                  <input type="email" name="email" id="username" class="form-control" placeholder="Email" required="required">
+                  <span style="margin-top:-50px" id="emailError"></span>
                 </div>
               </div>
               <div class="row">
@@ -159,4 +161,5 @@
       </div>
     </div>
   </body>
+  <script src="{% static 'vendors/index.js'%}"></script>
 </html>

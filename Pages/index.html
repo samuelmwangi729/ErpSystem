@@ -131,7 +131,7 @@
           </div>
           <div class="col-lg-4 col-md-12 col-xs-12">
             <div class="show-box">
-              <img src="img/features/app.png" alt="">
+              <img src="{% static 'images/Analytics.png' %}" class="img-responsive" alt="">
             </div>
           </div>
           <div class="col-lg-4 col-md-12 col-xs-12">
@@ -853,7 +853,8 @@
       <div class="loader" id="loader-1"></div>
     </div>
     <!-- End Preloader -->
-
+	<!-- get the vuejs from the  cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="{% static 'js/jquery-min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

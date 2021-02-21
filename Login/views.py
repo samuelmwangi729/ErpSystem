@@ -1,7 +1,10 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from  django.contrib.auth.models import User,auth
-
+import json
+from django.http import JsonResponse
+from django.views import View
+from validate_email import validate_email
 # Create your views here.
 def Login(request):
     return render(request,'login.html',{'message':'sam'})
@@ -49,3 +52,18 @@ def Register(request):
 def Logout(request):
     auth.logout(request)
     return redirect('/')
+
+class EmailValidationView(View):
+    def post(self,request):
+        try:
+            data=json.loads(request.body)
+            userEmail=data['username']
+            if not validate_email(userEmail):
+                return JsonResponse({'error':'Email Not Valid'})
+            else:
+                if User.objects.filter(email=userEmail).exists():
+                    return JsonResponse({'error':'Kindly register with other email since the one you are trying to use is already registered with us'})
+                else:
+                    return JsonResponse({'success':'The username is available'})
+        except json.decoder.JSONDecodeError:
+            return JsonResponse({'error':'Unidentified Parameters sent'})

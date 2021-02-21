@@ -75,7 +75,8 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12 form-group">
-                      <input type="email" name="email" id="" class="form-control" placeholder="Email" required="required" value="{{ email }}">
+                      <input type="email" name="email" id="username" class="form-control" placeholder="Email" required="required" value="{{ email }}">
+                      <span style="margin-top:-50px" id="emailError"></span>
                     </div>
                   </div>
                   <div class="row">
@@ -124,4 +125,5 @@
       </div>
     </div>
   </body>
+  <script src="{% static 'vendors/index.js'%}"></script>
 </html>
